@@ -1,0 +1,13 @@
+:root {
+  /* Colors */
+  --color-primary: rgb(248 112 112 / 100%);
+  --color-primary-faded: rgb(248 112 112 / 80%);
+  --color-text: #d7e0ff;
+  --color-dark-text: #1e213f;
+  --color-bg: #1e213f;
+  --color-component-bg: #161932;
+  --color-white: #fff;
+
+  /* Font */
+  --font-family: 'Kumbh sans', sans-serif;
+}
