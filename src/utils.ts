@@ -6,7 +6,6 @@ export const getReadableTime = (totalSeconds: EpochTimeStamp) => {
   const paddedSeconds = seconds.toString().padStart(2, '0');
 
   const readableTime = `${paddedMinutes}:${paddedSeconds}`;
-  console.log(readableTime);
 
   return readableTime;
 };

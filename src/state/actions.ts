@@ -6,7 +6,10 @@ enum ReducerActions {
 
 export const setTimer = (payload: any) => ({
   type: SET_TIMER,
-  payload,
+  payload: {
+    timerType: payload.durationType,
+    timerValue: payload.value,
+  },
 });
 
 export const setFont = (payload: any) => ({

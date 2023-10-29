@@ -7,6 +7,7 @@ export const BarContainer = styled.div`
   padding: 8px 7px 7px;
   border-radius: 31.5px;
   width: 100%;
+  max-width: 373px;
 `;
 
 export const ToggleButtonGroup = styled.ul`

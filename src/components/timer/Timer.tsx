@@ -32,7 +32,6 @@ const Timer = () => {
     const totalSeconds = timeLeft * 60;
     const minutes = totalSeconds / 60;
     const seconds = totalSeconds % 60;
-    console.log(minutes, seconds);
 
     countdownTheTime(totalSeconds);
   }, []);

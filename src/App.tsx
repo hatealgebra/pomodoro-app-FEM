@@ -10,6 +10,7 @@ import {
 
 import contextReducer from './state/reducer';
 import { useImmerReducer } from 'use-immer';
+import Settings from './components/settings/Settings';
 
 const App = () => {
   const [contextState, dispatch] = useImmerReducer(
@@ -24,6 +25,7 @@ const App = () => {
           <AppTitle>pomodoro</AppTitle>
           <ToggleBar />
           <Timer />
+          <Settings />
         </AppContainer>
       </PomodorDispatchContext.Provider>
     </PomodoroContext.Provider>

@@ -2,7 +2,9 @@ import { styled } from '@linaria/react';
 
 export const TimerContainer = styled.div`
   background: linear-gradient(315deg, #2e325a 0%, #0e112a 100%);
-  box-shadow: 50px 50px 100px 0 #121530, -50px -50px 100px 0 #272c5a;
+  box-shadow:
+    50px 50px 100px 0 #121530,
+    -50px -50px 100px 0 #272c5a;
   position: relative;
 
   &,

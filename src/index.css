@@ -33,40 +33,23 @@ body {
 h1 {
   color: var(--color-text);
   font-size: 8rem;
-
-  @media (--tablet-viewport) {
-    font-size: 10rem;
-  }
 }
 
 h2 {
   font-size: 2rem;
-
-  @media (--tablet-viewport) {
-    font-size: 2.8rem;
-  }
+  color: #161932;
 }
 
 h3 {
   font-size: 1.4rem;
   letter-spacing: 13.125px;
   text-transform: uppercasex;
-
-  @media (--tablet-viewport) {
-    font-size: 1.6rem;
-    letter-spacing: 15px;
-  }
 }
 
 h4 {
   font-size: 1.1rem;
   letter-spacing: 4.231px;
-
-  @media (--tablet-viewport) {
-    font-size: 1.3rem;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-  }
+  text-transform: uppercase;
 }
 
 .body-one {
@@ -75,4 +58,24 @@ h4 {
 
 .body-two {
   font-size: 1.2rem;
+}
+
+@media (--tablet-viewport) {
+  h1 {
+    font-size: 10rem;
+  }
+
+  h2 {
+    font-size: 2.8rem;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+    letter-spacing: 15px;
+  }
+
+  h4 {
+    font-size: 1.3rem;
+    letter-spacing: 5px;
+  }
 }

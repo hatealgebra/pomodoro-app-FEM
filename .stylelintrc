@@ -1,14 +1,5 @@
 {
-  "overrides": [
-    {
-      "files": ["**/*.tsx"],
-      "extends": ["@linaria/stylelint-config-standard-linaria"]
-    },
-    {
-      "files": ["**/*.css"],
-      "extends": ["stylelint-config-standard"]
-    }
-  ],
+  "extends": ["@linaria/stylelint-config-standard-linaria"],
   "rules": {
     "string-quotes": "single"
   }
