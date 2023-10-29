@@ -1,11 +1,3 @@
-export interface IContext {
-  timers?: {
-    [key in TimeUnion]: number;
-  };
-  color?: FontsUnion;
-  font?: FontsUnion;
-}
-
 export enum TimeEnum {
   POMODORO = 'pomodoro',
   SHORT_BREAK = 'shortBreak',
@@ -22,4 +14,15 @@ export enum ColorsEnum {
   RED = 'red',
   BLUE = 'blue',
   PURPLE = 'purple',
+}
+
+export interface IContext {
+  timer?: {
+    timers: {
+      [TimeEnum]: number;
+    };
+    currentTimer: number;
+  };
+  color?: FontsUnion;
+  font?: FontsUnion;
 }

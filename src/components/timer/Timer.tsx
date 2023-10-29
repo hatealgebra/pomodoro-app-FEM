@@ -3,13 +3,16 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { TimerContainer, TimeContent, CircleProgress } from './timer.styled';
 import { useWindowSize } from '@uidotdev/useHooks';
 import { getReadableTime } from '../../utils';
-import { usePomodoroContext } from '../../state/PomodoroContext';
+import { selectCurrentTimer } from '../../state/PomodoroContext';
+import { useAppSelector } from '../../state/hooks';
 
 const Timer = () => {
   const circleRef = useRef(null);
-  const context = usePomodoroContext();
-  const [timeLeft, setTimeLeft] = useState(context?.timers?.pomodoro);
+  const currentTimer = useAppSelector(selectCurrentTimer);
   const windowSize = useWindowSize();
+
+  const [timeLeft, setTimeLeft] = useState(currentTimer);
+  const [isRunning, setIsRunning] = useState(false);
 
   const dashArrayValue = useMemo(() => {
     if (!circleRef.current) return 0;
@@ -19,39 +22,53 @@ const Timer = () => {
     return 2 * Math.PI * radius;
   }, [circleRef, windowSize.width]);
 
-  const countdownTheTime = (timeValue: number) => {
-    if (timeValue < 0) return;
-    getReadableTime(timeValue - 1);
+  const reflectedState = useMemo(() => {
+    if (timeLeft === 0) return 'reset';
 
-    // return setTimeout(() => countdownTheTime(timeValue), 1000);
+    if (isRunning) return 'pause';
+
+    return 'start';
+  }, [isRunning]);
+
+  const countdownString = getReadableTime(timeLeft);
+  const visualProgress = (timeLeft / currentTimer) * dashArrayValue;
+
+  console.log(visualProgress);
+
+  const toggleStartStop = () => setIsRunning((prevState) => !prevState);
+
+  const countdownTheTime = (timeValue: number) => {
+    if (!isRunning) return;
+    if (timeLeft === 0) return setIsRunning(false);
+    if (timeValue === 0) return;
+    const updatedValue = timeValue - 1;
+    setTimeLeft(updatedValue);
   };
 
   useEffect(() => {
-    if (!timeLeft) return;
-
-    const totalSeconds = timeLeft * 60;
-    const minutes = totalSeconds / 60;
-    const seconds = totalSeconds % 60;
-
-    countdownTheTime(totalSeconds);
-  }, []);
+    if (!isRunning) return;
+    setTimeout(() => {
+      countdownTheTime(timeLeft);
+    }, 1000);
+  }, [isRunning, timeLeft]);
 
   return (
-    <TimerContainer>
+    <TimerContainer onClick={toggleStartStop}>
       <CircleProgress>
         <svg width='100%' height='100%'>
           <circle
-            // ref={circleRef}
+            ref={circleRef}
             r='45%'
             cx='50%'
             cy='50%'
             strokeDasharray={dashArrayValue}
+            strokeDashoffset={dashArrayValue - visualProgress}
           />
         </svg>
       </CircleProgress>
       <TimeContent>
-        <h1>{timeLeft}</h1>
-        <h3>pause</h3>
+        <h1>{countdownString}</h1>
+        <h3>{reflectedState}</h3>
       </TimeContent>
     </TimerContainer>
   );

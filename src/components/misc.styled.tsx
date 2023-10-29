@@ -12,7 +12,7 @@ export const AppContainer = styled.div`
   gap: 45px;
   padding: 3.2rem 0 4.8rem;
   width: 85%;
-  height: 90%;
-  justify-content: center;
+  justify-content: space-evenly;
   margin: auto;
+  height: 100%;
 `;

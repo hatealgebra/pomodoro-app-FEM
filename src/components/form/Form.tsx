@@ -21,11 +21,11 @@ type InputTypes = {
 };
 
 const Form = () => {
-  const { timers, font, color } = useContext(PomodoroContext);
+  const { timer, font, color } = useContext(PomodoroContext);
 
   const { register, handleSubmit, watch, formState } = useForm<InputTypes>({
     defaultValues: {
-      timers,
+      timer,
       font,
       color,
     },
@@ -36,12 +36,15 @@ const Form = () => {
   console.log(activeColor);
 
   const timersArray = useMemo(() => {
-    const timeEntries = Object.entries(timers) as [TimeEnum, number][];
+    if (!timer?.timers) return;
+
+    const timeEntries = Object.entries(timer?.timers) as [TimeEnum, number][];
     const timeEntriesArray = timeEntries.map(([name, value]) => {
       return { name, value };
     });
+
     return timeEntriesArray;
-  }, [timers]);
+  }, [timer?.timers]);
 
   const onSubmit: SubmitHandler<InputTypes> = (data) => console.log(data);
 

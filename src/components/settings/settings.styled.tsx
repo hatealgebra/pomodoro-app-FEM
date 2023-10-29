@@ -50,4 +50,14 @@ export const SettingsButton = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
+  transition: filter 0.3s ease-in-out;
+  transition: transform 1s ease;
+  position: relative;
+  width: 28px;
+  height: 28px;
+
+  &:hover {
+    filter: brightness(2);
+    transform: rotate(270deg);
+  }
 `;

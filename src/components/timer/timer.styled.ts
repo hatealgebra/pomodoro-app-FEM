@@ -12,7 +12,7 @@ export const TimerContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 100%;
     max-width: 410px;
     align-content: center;
     aspect-ratio: 1;
@@ -60,7 +60,6 @@ export const CircleProgress = styled.div`
     stroke: #f87070;
     stroke-width: 10;
     stroke-linecap: round;
-    stroke-dashoffset: 200;
     transition: stroke-dashoffset 1s;
   }
 `;
