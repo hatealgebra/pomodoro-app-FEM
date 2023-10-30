@@ -1,17 +1,13 @@
 import { IContext } from '..';
-import { SET_COLOR, SET_FONT, SET_TIMER } from './actions';
+import { ReducerActions, SET_NEW_STATE } from './actions';
 
-const contextReducer = (state: IContext, action: IAction) => {
+const contextReducer = (
+  state: IContext,
+  action: { type: ReducerActions; payload: any }
+) => {
   switch (action.type) {
-    case SET_TIMER:
-      console.log('timer');
-      break;
-    case SET_FONT:
-      console.log('font');
-      break;
-    case SET_COLOR:
-      console.log('color');
-      break;
+    case SET_NEW_STATE:
+      return action.payload;
     default:
       return state;
   }

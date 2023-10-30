@@ -1,25 +1,14 @@
-enum ReducerActions {
-  SET_TIMER = 'SET_TIMER',
+import { IContext } from '..';
+
+export enum ReducerActions {
+  SET_NEW_STATE = 'SET_NEW_STATE',
   SET_FONT = 'SET_FONT',
   SET_COLOR = 'SET_COLOR',
 }
 
-export const setTimer = (payload: any) => ({
-  type: SET_TIMER,
-  payload: {
-    timerType: payload.durationType,
-    timerValue: payload.value,
-  },
-});
-
-export const setFont = (payload: any) => ({
-  type: SET_FONT,
+export const setNewState = (payload: IContext) => ({
+  type: SET_NEW_STATE,
   payload,
 });
 
-export const setColor = (payload: any) => ({
-  type: SET_COLOR,
-  payload,
-});
-
-export const { SET_TIMER, SET_FONT, SET_COLOR } = ReducerActions;
+export const { SET_NEW_STATE } = ReducerActions;

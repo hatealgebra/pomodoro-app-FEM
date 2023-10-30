@@ -1,9 +1,9 @@
 import { createContext } from 'react';
-import { ColorsEnum, FontsEnum, IContext } from '../index.d';
+import { ColorsEnum, FontsEnum, IContext, TimeEnum } from '../index.d';
 
-const POMODORO = 1500;
-const SHORT_BREAK = 300;
-const LONG_BREAK = 900;
+const POMODORO = 45;
+const SHORT_BREAK = 5;
+const LONG_BREAK = 15;
 
 const defaultTimers = {
   pomodoro: parseInt(localStorage.getItem('pomodoro')!, 10) || POMODORO,
@@ -17,7 +17,7 @@ const defaultColor = localStorage.getItem('color') || ColorsEnum.RED;
 export const initialState: IContext = {
   timer: {
     timers: defaultTimers,
-    currentTimer: POMODORO,
+    currentTimer: TimeEnum.POMODORO,
   },
   font: defaultFont,
   color: defaultColor,
@@ -32,6 +32,8 @@ export const PomodorDispatchContext = createContext<React.Dispatch<any> | null>(
 export const selectCurrentTimer = (state: IContext) =>
   state.timer?.currentTimer;
 export const selectTimers = (state: IContext) => state.timer?.timers;
+export const selectCurrentValue = (state: IContext) =>
+  state.timer.timers[state.timer.currentTimer] * 60;
 
 // Selectors for font and color theme
 export const selectFont = (state: IContext) => state.font;

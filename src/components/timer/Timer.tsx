@@ -3,15 +3,15 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { TimerContainer, TimeContent, CircleProgress } from './timer.styled';
 import { useWindowSize } from '@uidotdev/useHooks';
 import { getReadableTime } from '../../utils';
-import { selectCurrentTimer } from '../../state/PomodoroContext';
+import { selectCurrentValue } from '../../state/PomodoroContext';
 import { useAppSelector } from '../../state/hooks';
 
 const Timer = () => {
   const circleRef = useRef(null);
-  const currentTimer = useAppSelector(selectCurrentTimer);
+  const currentTimeValue = useAppSelector(selectCurrentValue);
   const windowSize = useWindowSize();
 
-  const [timeLeft, setTimeLeft] = useState(currentTimer);
+  const [timeLeft, setTimeLeft] = useState(currentTimeValue);
   const [isRunning, setIsRunning] = useState(false);
 
   const dashArrayValue = useMemo(() => {
@@ -31,7 +31,7 @@ const Timer = () => {
   }, [isRunning]);
 
   const countdownString = getReadableTime(timeLeft);
-  const visualProgress = (timeLeft / currentTimer) * dashArrayValue;
+  const visualProgress = (timeLeft / currentTimeValue) * dashArrayValue;
 
   console.log(visualProgress);
 
@@ -51,6 +51,10 @@ const Timer = () => {
       countdownTheTime(timeLeft);
     }, 1000);
   }, [isRunning, timeLeft]);
+
+  useEffect(() => {
+    setTimeLeft(currentTimeValue);
+  }, [currentTimeValue]);
 
   return (
     <TimerContainer onClick={toggleStartStop}>

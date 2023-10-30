@@ -21,8 +21,8 @@ export interface IContext {
     timers: {
       [TimeEnum]: number;
     };
-    currentTimer: number;
   };
+  currentTimer: TimeEnum;
   color?: FontsUnion;
   font?: FontsUnion;
 }
