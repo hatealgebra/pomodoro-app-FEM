@@ -10,30 +10,28 @@ import {
 import { PomodoroContext } from '../../state/PomodoroContext';
 import Input from '../input/Input';
 import { ColorsEnum, FontsEnum, TimeEnum } from '../../index.d';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { useAppDispatch } from '../../state/hooks';
+import { setNewState } from '../../state/actions';
 
 type TimersType = Record<keyof TimeEnum, number>;
 
 type InputTypes = {
   font: FontsEnum;
-  timers: Record<TimeEnum, number>;
+  timer: { timers: Record<TimeEnum, number>; currentTimer: TimeEnum };
   color: ColorsEnum;
 };
 
 const Form = () => {
   const { timer, font, color } = useContext(PomodoroContext);
-
-  const { register, handleSubmit, watch, formState } = useForm<InputTypes>({
+  const dispatch = useAppDispatch();
+  const { register, handleSubmit, control } = useForm<InputTypes>({
     defaultValues: {
       timer,
       font,
       color,
     },
   });
-
-  const activeColor = watch('color');
-
-  console.log(activeColor);
 
   const timersArray = useMemo(() => {
     if (!timer?.timers) return;
@@ -46,19 +44,22 @@ const Form = () => {
     return timeEntriesArray;
   }, [timer?.timers]);
 
-  const onSubmit: SubmitHandler<InputTypes> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<InputTypes> = (data) =>
+    dispatch(setNewState(data));
 
   return (
     <SettingsForm onSubmit={handleSubmit(onSubmit)}>
       <section>
         <h4>Time (minutes)</h4>
         <InputGroup>
-          {timersArray.map(({ name, value }) => {
+          {timersArray?.map(({ name, value }) => {
             return (
-              <Input
-                key={`${name}-${value}`}
-                label={name}
-                {...register(`timers.${name}`)}
+              <Controller
+                name={`timer.timers.${name}`}
+                control={control}
+                render={({ field }) => (
+                  <Input key={`${name}-${value}`} label={name} {...field} />
+                )}
               />
             );
           })}
