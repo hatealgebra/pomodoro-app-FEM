@@ -42,7 +42,7 @@ const Timer = () => {
 
   useEffect(() => {
     let intervalId;
-    console.log(isRunning);
+
     if (!isRunning) {
       clearInterval(intervalId);
       return;
