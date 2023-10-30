@@ -7,9 +7,9 @@ import {
   SettingsHeader,
 } from './settings.styled';
 import Form from '../form/Form';
-import { useRef } from 'react';
+import { memo, useRef } from 'react';
 
-const Settings = () => {
+const Settings = memo(() => {
   const dialogRef = useRef(null);
 
   const openMenu = () => {
@@ -45,6 +45,6 @@ const Settings = () => {
       </SettingsButton>
     </>
   );
-};
+});
 
 export default Settings;

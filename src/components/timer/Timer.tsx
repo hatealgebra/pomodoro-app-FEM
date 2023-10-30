@@ -33,26 +33,37 @@ const Timer = () => {
   const countdownString = getReadableTime(timeLeft);
   const visualProgress = (timeLeft / currentTimeValue) * dashArrayValue;
 
-  console.log(visualProgress);
-
   const toggleStartStop = () => setIsRunning((prevState) => !prevState);
 
   const countdownTheTime = (timeValue: number) => {
-    if (!isRunning) return;
-    if (timeLeft === 0) return setIsRunning(false);
-    if (timeValue === 0) return;
     const updatedValue = timeValue - 1;
     setTimeLeft(updatedValue);
   };
 
   useEffect(() => {
-    if (!isRunning) return;
-    setTimeout(() => {
-      countdownTheTime(timeLeft);
+    let intervalId;
+    console.log(isRunning);
+    if (!isRunning) {
+      clearInterval(intervalId);
+      return;
+    }
+    // setTimeout(() => {
+    //   countdownTheTime(timeLeft);
+    // }, 1000);
+    intervalId = setInterval(() => {
+      if (timeLeft > 0) {
+        setTimeLeft((prev: number) => prev - 1);
+      }
     }, 1000);
-  }, [isRunning, timeLeft]);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [isRunning]);
 
   useEffect(() => {
+    setIsRunning(false);
+
     setTimeLeft(currentTimeValue);
   }, [currentTimeValue]);
 

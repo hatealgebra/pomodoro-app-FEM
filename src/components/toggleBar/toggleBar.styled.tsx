@@ -29,20 +29,6 @@ export const ToggleButtonGroup = styled.ul`
     text-align: center;
     font-family: var(--font-family);
     z-index: 2;
-
-    button {
-      border: none;
-      background-color: transparent;
-      color: var(--color-text);
-      opacity: 0.4;
-      text-transform: lowercase;
-      font-weight: 700;
-
-      &.active {
-        color: var(--color-bg);
-        opacity: 1;
-      }
-    }
   }
 
   .chosen-option {
@@ -50,5 +36,22 @@ export const ToggleButtonGroup = styled.ul`
     z-index: 0;
     position: absolute;
     left: -11px;
+    cursor: none;
+  }
+`;
+
+export const PillButton = styled.button`
+  border: none;
+  background-color: transparent;
+  color: var(--color-text);
+  opacity: 0.4;
+  text-transform: lowercase;
+  font-weight: 700;
+  z-index: 1;
+  cursor: pointer;
+
+  &.active {
+    color: var(--color-bg);
+    opacity: 1;
   }
 `;
