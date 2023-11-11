@@ -1,4 +1,5 @@
 import { styled } from '@linaria/react';
+import customMedia from '../../constants/customMedia';
 
 export const InputContainer = styled.div`
   display: flex;
@@ -18,8 +19,9 @@ export const InputContainer = styled.div`
     flex: 1;
   }
 
-  @media (--tablet-viewport) {
-    display: row;
+  ${customMedia.maxSettingsQuery} {
+    flex-direction: column;
+    align-items: flex-start;
   }
 `;
 

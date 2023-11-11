@@ -15,7 +15,7 @@ export const SettingsBackground = styled.div`
 export const SettingsContainer = styled.div`
   width: 85%;
   background-color: #fff;
-  height: 85%;
+  height: fit-content;
   padding: 2.4rem 0;
   margin: auto;
   max-width: 540px;

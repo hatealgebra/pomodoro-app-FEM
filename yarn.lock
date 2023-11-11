@@ -3200,6 +3200,16 @@ postcss-custom-media@^10.0.1:
     "@csstools/css-tokenizer" "^2.2.0"
     "@csstools/media-query-list-parser" "^2.1.4"
 
+postcss-custom-media@^10.0.2:
+  version "10.0.2"
+  resolved "https://registry.yarnpkg.com/postcss-custom-media/-/postcss-custom-media-10.0.2.tgz#70a244bbc59fc953ab6573e4e2c9624639aef08a"
+  integrity sha512-zcEFNRmDm2fZvTPdI1pIW3W//UruMcLosmMiCdpQnrCsTRzWlKQPYMa1ud9auL0BmrryKK1+JjIGn19K0UjO/w==
+  dependencies:
+    "@csstools/cascade-layer-name-parser" "^1.0.5"
+    "@csstools/css-parser-algorithms" "^2.3.2"
+    "@csstools/css-tokenizer" "^2.2.1"
+    "@csstools/media-query-list-parser" "^2.1.5"
+
 postcss-custom-properties@^13.3.1:
   version "13.3.2"
   resolved "https://registry.yarnpkg.com/postcss-custom-properties/-/postcss-custom-properties-13.3.2.tgz#88952f883003d897ade5c836e1e005b09a12f02b"

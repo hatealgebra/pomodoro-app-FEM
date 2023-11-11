@@ -14,8 +14,6 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useAppDispatch } from '../../state/hooks';
 import { setNewState } from '../../state/actions';
 
-type TimersType = Record<keyof TimeEnum, number>;
-
 type InputTypes = {
   font: FontsEnum;
   timer: { timers: Record<TimeEnum, number>; currentTimer: TimeEnum };
@@ -24,6 +22,7 @@ type InputTypes = {
 
 const Form = () => {
   const { timer, font, color } = useContext(PomodoroContext);
+  console.log(timer, font, color);
   const dispatch = useAppDispatch();
   const { register, handleSubmit, control } = useForm<InputTypes>({
     defaultValues: {
@@ -44,8 +43,9 @@ const Form = () => {
     return timeEntriesArray;
   }, [timer?.timers]);
 
-  const onSubmit: SubmitHandler<InputTypes> = (data) =>
+  const onSubmit: SubmitHandler<InputTypes> = (data) => {
     dispatch(setNewState(data));
+  };
 
   return (
     <SettingsForm onSubmit={handleSubmit(onSubmit)}>

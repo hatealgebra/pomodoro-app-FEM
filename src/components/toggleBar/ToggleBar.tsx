@@ -54,8 +54,6 @@ const ToggleBar = () => {
     <BarContainer>
       <ToggleButtonGroup ref={toggleBarRef}>
         {buttonValues.map((value, index) => {
-          console.log('value', value);
-          console.log('currentTime', currentTimer);
           return (
             <li key={`${value}-${index}`}>
               <ToggleButton

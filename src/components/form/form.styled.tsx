@@ -1,5 +1,6 @@
 import { styled } from '@linaria/react';
 import { ColorsEnum, FontsEnum } from '../../index.d';
+import customMedia from '../../constants/customMedia';
 
 export const SettingsForm = styled.form`
   padding: 2.4rem;
@@ -20,6 +21,10 @@ export const SettingsForm = styled.form`
 
     h4 {
       text-align: center;
+
+      ${customMedia.maxSettingsQuery} {
+        text-align: left;
+      }
     }
 
     & > div {
@@ -32,6 +37,10 @@ export const InputGroup = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  ${customMedia.maxSettingsQuery} {
+    flex-direction: row;
+  }
 `;
 
 export const RadioGroup = styled.div`

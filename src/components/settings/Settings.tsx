@@ -27,7 +27,7 @@ const Settings = memo(() => {
 
   return (
     <>
-      <dialog ref={dialogRef}>
+      <dialog open ref={dialogRef}>
         <SettingsBackground>
           <SettingsContainer>
             <SettingsHeader>
