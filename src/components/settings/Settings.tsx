@@ -20,6 +20,7 @@ const Settings = memo(() => {
   };
   const closeMenu = () => {
     const dialogEl = dialogRef.current;
+    console.log(dialogEl);
     if (dialogEl) {
       dialogEl.close();
     }

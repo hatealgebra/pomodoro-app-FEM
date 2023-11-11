@@ -14,11 +14,10 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useAppDispatch } from '../../state/hooks';
 import { setNewState } from '../../state/actions';
 
-type InputTypes = {
+export type InputTypes = {
   font: FontsEnum;
   timer: { timers: Record<TimeEnum, number>; currentTimer: TimeEnum };
   color: ColorsEnum;
-  closeMenu: () => void;
 };
 
 interface FormProps {
@@ -29,7 +28,12 @@ const Form = ({ closeMenu }: FormProps) => {
   const { timer, font, color } = useContext(PomodoroContext);
   const dispatch = useAppDispatch();
 
-  const { register, handleSubmit, control } = useForm<InputTypes>({
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<InputTypes>({
     defaultValues: {
       timer,
       font,
@@ -63,8 +67,17 @@ const Form = ({ closeMenu }: FormProps) => {
               <Controller
                 name={`timer.timers.${name}`}
                 control={control}
+                rules={{
+                  required: true,
+                  min: { value: 0, message: 'Cannot be negative number' },
+                }}
                 render={({ field }) => (
-                  <Input key={`${name}-${value}`} label={name} {...field} />
+                  <Input
+                    key={`${name}-${value}`}
+                    label={name}
+                    errors={errors}
+                    {...field}
+                  />
                 )}
               />
             );

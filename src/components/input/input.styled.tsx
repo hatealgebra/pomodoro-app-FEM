@@ -69,3 +69,7 @@ export const StyledInput = styled.div`
     }
   }
 `;
+
+export const InputError = styled.span`
+  color: var(--color-error);
+`;

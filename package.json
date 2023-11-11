@@ -21,6 +21,7 @@
     "use-immer": "^0.9.0"
   },
   "devDependencies": {
+    "@hookform/error-message": "^2.0.1",
     "@linaria/stylelint-config-standard-linaria": "^5.0.0",
     "@linaria/vite": "^5.0.3",
     "@types/react": "^18.2.15",
