@@ -1,4 +1,4 @@
-import { useContext, useMemo } from 'react';
+import { SetStateAction, useContext, useMemo } from 'react';
 import {
   ColorRadioButton,
   FontRadioButton,
@@ -18,12 +18,17 @@ type InputTypes = {
   font: FontsEnum;
   timer: { timers: Record<TimeEnum, number>; currentTimer: TimeEnum };
   color: ColorsEnum;
+  closeMenu: () => void;
 };
 
-const Form = () => {
+interface FormProps {
+  closeMenu: () => void;
+}
+
+const Form = ({ closeMenu }: FormProps) => {
   const { timer, font, color } = useContext(PomodoroContext);
-  console.log(timer, font, color);
   const dispatch = useAppDispatch();
+
   const { register, handleSubmit, control } = useForm<InputTypes>({
     defaultValues: {
       timer,
@@ -45,6 +50,7 @@ const Form = () => {
 
   const onSubmit: SubmitHandler<InputTypes> = (data) => {
     dispatch(setNewState(data));
+    closeMenu();
   };
 
   return (

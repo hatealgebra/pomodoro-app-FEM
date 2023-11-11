@@ -36,7 +36,7 @@ const Settings = memo(() => {
                 <img src={closeIcon} alt='Close settings button' />
               </CloseButton>
             </SettingsHeader>
-            <Form />
+            <Form closeMenu={closeMenu} />
           </SettingsContainer>
         </SettingsBackground>
       </dialog>

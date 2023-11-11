@@ -51,7 +51,7 @@ export const SettingsButton = styled.button`
   border: none;
   cursor: pointer;
   transition: filter 0.3s ease-in-out;
-  transition: transform 1s ease;
+  transition: transform 1.5s ease;
   position: relative;
   width: 28px;
   height: 28px;
