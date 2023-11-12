@@ -18,10 +18,6 @@ const App = () => {
     initialState
   );
 
-  console.log(contextState);
-
-  console.log(`${contextState.font.replace(' ', '-').toLowerCase()}`);
-
   return (
     <PomodoroContext.Provider value={contextState}>
       <PomodorDispatchContext.Provider value={dispatch}>

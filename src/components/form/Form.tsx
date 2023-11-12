@@ -1,4 +1,4 @@
-import { SetStateAction, useContext, useMemo } from 'react';
+import { useContext, useMemo } from 'react';
 import {
   ColorRadioButton,
   FontRadioButton,
@@ -13,6 +13,7 @@ import { ColorsEnum, FontsEnum, TimeEnum } from '../../index.d';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useAppDispatch } from '../../state/hooks';
 import { setNewState } from '../../state/actions';
+import { saveSettingsToStorage } from '../../helpers/saveToStorage.helper';
 
 export type InputTypes = {
   font: FontsEnum;
@@ -54,6 +55,7 @@ const Form = ({ closeMenu }: FormProps) => {
 
   const onSubmit: SubmitHandler<InputTypes> = (data) => {
     dispatch(setNewState(data));
+    saveSettingsToStorage(data);
     closeMenu();
   };
 
