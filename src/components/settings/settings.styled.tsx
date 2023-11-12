@@ -10,6 +10,7 @@ export const SettingsBackground = styled.div`
   align-items: center;
   inset: 0;
   z-index: 10;
+  font-family: var(--font-kumbh-sans);
 `;
 
 export const SettingsContainer = styled.div`

@@ -7,6 +7,7 @@ const contextReducer = (
 ) => {
   switch (action.type) {
     case SET_NEW_STATE:
+      console.log(action.payload);
       return action.payload;
     case SET_TIMER:
       return {

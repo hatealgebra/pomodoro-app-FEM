@@ -35,11 +35,6 @@ const Timer = () => {
 
   const toggleStartStop = () => setIsRunning((prevState) => !prevState);
 
-  const countdownTheTime = (timeValue: number) => {
-    const updatedValue = timeValue - 1;
-    setTimeLeft(updatedValue);
-  };
-
   useEffect(() => {
     let intervalId;
 
@@ -47,9 +42,6 @@ const Timer = () => {
       clearInterval(intervalId);
       return;
     }
-    // setTimeout(() => {
-    //   countdownTheTime(timeLeft);
-    // }, 1000);
     intervalId = setInterval(() => {
       if (timeLeft > 0) {
         setTimeLeft((prev: number) => prev - 1);

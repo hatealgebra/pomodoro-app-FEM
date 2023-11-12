@@ -12,7 +12,9 @@
   --color-error: #ff0000;
 
   /* Font */
-  --font-family: 'Kumbh sans', sans-serif;
+  --font-kumbh-sans: 'Kumbh sans', sans-serif;
+  --font-roboto-slab: 'Roboto Slab', serif;
+  --font-space-mono: 'Space Mono', monospace;
 
   /* Colors Theme */
   --color-red-theme: #f87070;

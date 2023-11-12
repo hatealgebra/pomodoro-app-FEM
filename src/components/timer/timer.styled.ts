@@ -57,7 +57,8 @@ export const CircleProgress = styled.div`
   }
   circle {
     fill: transparent;
-    stroke: #f87070;
+    /* stroke: #f87070; */
+    stroke: var(--color-theme);
     stroke-width: 10;
     stroke-linecap: round;
     transition: stroke-dashoffset 1s;

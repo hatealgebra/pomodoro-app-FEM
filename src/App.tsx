@@ -1,7 +1,7 @@
-// import '@fontsource-variable/kumbh-sans/';
 import { AppContainer, AppTitle } from './components/misc.styled';
 import ToggleBar from './components/toggleBar/ToggleBar';
 import Timer from './components/timer/Timer';
+import clsx from 'clsx';
 import {
   PomodorDispatchContext,
   PomodoroContext,
@@ -18,10 +18,19 @@ const App = () => {
     initialState
   );
 
+  console.log(contextState);
+
+  console.log(`${contextState.font.replace(' ', '-').toLowerCase()}`);
+
   return (
     <PomodoroContext.Provider value={contextState}>
       <PomodorDispatchContext.Provider value={dispatch}>
-        <AppContainer>
+        <AppContainer
+          className={clsx(
+            `${contextState.color}-theme`,
+            `${contextState.font.replace(' ', '-').toLowerCase()}`
+          )}
+        >
           <AppTitle>pomodoro</AppTitle>
           <ToggleBar />
           <Timer />

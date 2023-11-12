@@ -15,4 +15,28 @@ export const AppContainer = styled.div`
   justify-content: space-evenly;
   margin: auto;
   height: 100%;
+
+  &.red-theme {
+    --color-theme: var(--color-red-theme);
+  }
+
+  &.blue-theme {
+    --color-theme: var(--color-blue-theme);
+  }
+
+  &.purple-theme {
+    --color-theme: var(--color-purple-theme);
+  }
+
+  &.kumbh-sans {
+    font-family: var(--font-kumbh-sans);
+  }
+
+  &.roboto-slab {
+    font-family: var(--font-roboto-slab);
+  }
+
+  &.space-mono {
+    font-family: var(--font-space-mono);
+  }
 `;

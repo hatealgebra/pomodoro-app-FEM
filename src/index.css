@@ -22,7 +22,6 @@ html {
 body {
   font-weight: bold;
   font-style: normal;
-  font-family: var(--font-family);
   background-color: var(--color-bg);
 }
 

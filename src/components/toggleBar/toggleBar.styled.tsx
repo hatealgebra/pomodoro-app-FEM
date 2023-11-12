@@ -48,7 +48,7 @@ export const ToggleButton = styled.button<{ isActive: boolean }>`
 `;
 
 export const PillButton = styled.button`
-  background-color: red;
+  background-color: var(--color-theme);
   z-index: 0;
   position: absolute;
   height: 100%;
