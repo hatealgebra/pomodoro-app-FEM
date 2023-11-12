@@ -1,10 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { TimerContainer, TimeContent, CircleProgress } from './timer.styled';
-import { useWindowSize } from '@uidotdev/useHooks';
+
 import { getReadableTime } from '../../utils';
 import { selectCurrentValue } from '../../state/PomodoroContext';
 import { useAppSelector } from '../../state/hooks';
+import { useWindowSize } from '@uidotdev/usehooks';
 
 const Timer = () => {
   const circleRef = useRef(null);
