@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/hatealgebra/pomodoro-app-FEM](https://github.com/hatealgebra/pomodoro-app-FEM)
+- Live Site URL: [https://pomodoro-hatealgebra.netlify.app](https://pomodoro-hatealgebra.netlify.app)
 
 ## My process
 
