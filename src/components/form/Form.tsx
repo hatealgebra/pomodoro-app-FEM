@@ -42,6 +42,8 @@ const Form = ({ closeMenu }: FormProps) => {
     },
   });
 
+  console.log(timer, font, color);
+
   const timersArray = useMemo(() => {
     if (!timer?.timers) return;
 
@@ -54,7 +56,11 @@ const Form = ({ closeMenu }: FormProps) => {
   }, [timer?.timers]);
 
   const onSubmit: SubmitHandler<InputTypes> = (data) => {
-    dispatch(setNewState(data));
+    const newSettings = {
+      ...data,
+      timer: { ...data.timer, currentTimer: timer.currentTimer },
+    };
+    dispatch(setNewState(newSettings));
     saveSettingsToStorage(data);
     closeMenu();
   };
